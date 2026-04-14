@@ -1,16 +1,17 @@
-import './App.css'
-import CommonLayout from './Mainlayout/CommonLayout/CommonLayout'
+import "./App.css";
+import CommonLayout from "./Mainlayout/CommonLayout/CommonLayout";
+import { ThemeProvider } from "./providers/theme.provider";
 
 function App() {
-
-
   return (
     <>
       <div>
-       <CommonLayout/>
+        <ThemeProvider defaultTheme="dark" storageKey="">
+          <CommonLayout />
+        </ThemeProvider>
       </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
