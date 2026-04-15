@@ -1,4 +1,5 @@
 import AboutUs from "./AboutUs";
+import KeyBenefits from "./Benifit";
 import FeaturesGrid from "./FeatureGrid";
 import HeroSection from "./Hero";
 import MissionSection from "./OurMission";
@@ -20,6 +21,7 @@ export default function Home() {
        <ProductShowcase/>
        <ServicesSection/>
        <FeaturesGrid/>
+       <KeyBenefits/>
     </div>
   );
 }
