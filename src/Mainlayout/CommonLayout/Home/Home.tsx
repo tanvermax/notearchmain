@@ -19,7 +19,7 @@ export default function Home() {
        <RegisteredInstitutes/>
        <ProductShowcase/>
        <ServicesSection/>
-       {/* <FeaturesGrid/> */}
+       <FeaturesGrid/>
     </div>
   );
 }
