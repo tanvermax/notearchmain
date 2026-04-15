@@ -14,12 +14,12 @@ export default function Home() {
        <HeroSection/>
        <ProductFeatures/>
        <AboutUs/>
-       <MissionSection/>
+       {/* <MissionSection/>
        <VisionSection/>
        <RegisteredInstitutes/>
        <ProductShowcase/>
        <ServicesSection/>
-       <FeaturesGrid/>
+       <FeaturesGrid/> */}
     </div>
   );
 }
