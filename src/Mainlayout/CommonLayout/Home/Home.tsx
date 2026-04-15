@@ -16,10 +16,10 @@ export default function Home() {
        <AboutUs/>
        <MissionSection/>
        <VisionSection/>
-       {/* <RegisteredInstitutes/>
-       <ProductShowcase/>
-       <ServicesSection/>
-       <FeaturesGrid/> */}
+       <RegisteredInstitutes/>
+       {/* <ProductShowcase/> */}
+       {/* <ServicesSection/> */}
+       {/* <FeaturesGrid/> */}
     </div>
   );
 }
