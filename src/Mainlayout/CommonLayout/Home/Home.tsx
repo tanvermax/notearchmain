@@ -15,8 +15,8 @@ export default function Home() {
        <ProductFeatures/>
        <AboutUs/>
        <MissionSection/>
-       {/* <VisionSection/>
-       <RegisteredInstitutes/>
+       <VisionSection/>
+       {/* <RegisteredInstitutes/>
        <ProductShowcase/>
        <ServicesSection/>
        <FeaturesGrid/> */}
