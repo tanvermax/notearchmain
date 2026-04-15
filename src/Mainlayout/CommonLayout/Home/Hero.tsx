@@ -13,6 +13,9 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import Lottie from "lottie-react";
 import animationData from "../../../assets/lottifile/Animation - 1740010453167.json";
+import animationData1 from "../../../assets/lottifile/STUDENT.json";
+import animationData2 from "../../../assets/lottifile/Teacher Pythagoras Theorem.json";
+import animationData3 from "../../../assets/lottifile/learning.json";
 
 const SCENES = [
   {
@@ -33,7 +36,7 @@ const SCENES = [
     icon: <Smartphone className="w-5 h-5" />,
     stats: "Anywhere Access",
     color: "from-cyan-500 to-blue-500",
-    image: animationData, // Screenshot 2
+    image: animationData1, // Screenshot 2
   },
   {
     id: 3,
@@ -43,7 +46,7 @@ const SCENES = [
     icon: <ShieldCheck className="w-5 h-5" />,
     stats: "Live Updates",
     color: "from-indigo-500 to-purple-600",
-    image: animationData, // Screenshot 3
+    image: animationData2, // Screenshot 3
   },
   {
     id: 4,
@@ -53,7 +56,7 @@ const SCENES = [
     icon: <Globe className="w-5 h-5" />,
     stats: "Full Scale",
     color: "from-sky-500 to-emerald-500",
-    image: animationData, // Screenshot 4
+    image: animationData3, // Screenshot 4
   },
 ];
 

@@ -1,4 +1,4 @@
-import { Languages, Moon, Sun } from "lucide-react"
+import { Languages } from "lucide-react"
 
 import { Button } from "../../components/ui/button"
 import {
