@@ -18,7 +18,7 @@ export default function Home() {
        <VisionSection/>
        <RegisteredInstitutes/>
        <ProductShowcase/>
-       {/* <ServicesSection/> */}
+       <ServicesSection/>
        {/* <FeaturesGrid/> */}
     </div>
   );
