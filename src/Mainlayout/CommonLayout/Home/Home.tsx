@@ -4,6 +4,7 @@ import KeyBenefits from "./Benifit";
 import ContactSection from "./ContactSession";
 import FeaturesGrid from "./FeatureGrid";
 import HeroSection from "./Hero";
+import HowItWorks from "./HowItWork";
 import LatestBlogSection from "./LatestBlogSection";
 import MissionSection from "./OurMission";
 import ProductShowcase from "./OurProduct";
@@ -28,6 +29,7 @@ export default function Home() {
        <ContactSection/>
        <AppDownloadSection/>
        <LatestBlogSection/>
+       <HowItWorks/>
     </div>
   );
 }
