@@ -1,8 +1,8 @@
-import React from "react";
+
 import { motion } from "framer-motion";
 import { ArrowRight, BrainCircuit, Mic } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+
 
 // If you are using the actual PNG image from screenshot 5, place it here.
 // const aboutVisual = "/path-to-about-us-illustration-from-screenshot5.png";

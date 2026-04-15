@@ -66,7 +66,7 @@ export default function FeaturesGrid() {
               <div className="flex items-center gap-6 w-full">
                 {/* Icon Container */}
                 <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800 text-slate-600 dark:text-slate-300 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
-                  {React.cloneElement(feature.icon as React.ReactElement, { className: "w-6 h-6" } as any)}
+                  {React.cloneElement(feature.icon as React.ReactElement<{ className?: string }>, { className: "w-6 h-6" })}
                 </div>
                 
                 {/* Label */}

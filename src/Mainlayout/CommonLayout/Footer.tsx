@@ -1,4 +1,4 @@
-import React from "react";
+
 import { NavLink } from "react-router";
 import { Send, ArrowRight } from "lucide-react";
 import logo from "../../assets/image.png";

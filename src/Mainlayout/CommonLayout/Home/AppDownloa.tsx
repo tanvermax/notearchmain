@@ -1,7 +1,7 @@
-import React from "react";
+
 import { motion } from "framer-motion";
-import { CheckCircle2, Smartphone, Download, Sparkles } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { CheckCircle2,  Sparkles } from "lucide-react";
+
 
 const APP_HIGHLIGHTS = [
   { icon: <CheckCircle2 className="w-5 h-5 text-emerald-500" />, text: "Real-time Attendance" },

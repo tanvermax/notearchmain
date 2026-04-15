@@ -1,4 +1,4 @@
-import React from "react";
+
 import { motion } from "framer-motion";
 
 // Sample data - You can add more institutes here

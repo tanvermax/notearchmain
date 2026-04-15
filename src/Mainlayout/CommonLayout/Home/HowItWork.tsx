@@ -1,5 +1,5 @@
-import React, { useRef } from "react";
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import  { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { 
   Building2, 
   Users, 
@@ -63,12 +63,6 @@ export default function InteractiveOnboarding() {
   const targetRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: targetRef });
   
-  const springProgress = useSpring(scrollYProgress, { stiffness: 100, damping: 30 });
-  
-  const widthPercentage = useTransform(springProgress, [0, 1], ["0%", "100%"]);
-  
-  // Transform background based on scroll
-  const gradientIndex = useTransform(scrollYProgress, [0, 0.4, 0.7, 1], [0, 0.4, 0.7, 1]);
 
   return (
     <section ref={targetRef} className="py-24 bg-white dark:bg-slate-950 min-h-[120vh]">
