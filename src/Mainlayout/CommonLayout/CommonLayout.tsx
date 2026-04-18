@@ -9,7 +9,9 @@ export default function CommonLayout() {
 //    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
       <>
       <Navber />
-      <Outlet/>
+     <div className='mt-20'>
+       <Outlet/>
+     </div>
       <Footer/>
       </>
     //   </ThemeProvider>

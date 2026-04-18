@@ -74,7 +74,7 @@ export default function PremiumHero() {
   const active = SCENES[index];
 
   return (
-    <section className="relative min-h-[90vh] w-full flex items-center bg-white dark:bg-slate-950 overflow-hidden">
+    <section className="relative pt-20 min-h-[90vh] w-full flex items-center bg-white dark:bg-slate-950 overflow-hidden">
       {/* Dynamic Background Glow */}
       <div
         className={cn(

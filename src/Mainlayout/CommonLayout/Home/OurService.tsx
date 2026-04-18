@@ -56,13 +56,13 @@ const SERVICES = [
 
 export default function ServicesSection() {
   return (
-    <section className="py-24 bg-white dark:bg-slate-950">
-      <div className="container mx-auto px-6 max-w-7xl">
+    <section className="md:py-24 overflow-hidden bg-white dark:bg-slate-950">
+      <div className="container mx-auto px-6 max-w-7xl ">
         
         {/* Section Header */}
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-          <div className="max-w-xl space-y-4">
-            <h2 className="text-sm font-bold tracking-widest text-primary uppercase">Expertise</h2>
+          <div className="md:max-w-xl space-y-4">
+            <h2 className="text-xs font-bold tracking-widest text-primary uppercase">Expertise</h2>
             <h3 className="text-4xl md:text-5xl font-black tracking-tighter text-slate-900 dark:text-white">
               Tailored Professional <span className="text-primary">Services</span>
             </h3>

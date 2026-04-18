@@ -66,7 +66,7 @@ export default function ProductShowcase() {
       const Lottianimation = (Lottie as any).default || Lottie;
 
   return (
-    <section className="py-24 bg-slate-50 dark:bg-slate-900/20">
+    <section   className="py-24 bg-slate-50 dark:bg-slate-900/20">
       <div className="container mx-auto px-6 max-w-7xl">
         
         {/* Header */}

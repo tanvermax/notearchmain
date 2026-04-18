@@ -15,18 +15,24 @@ import VisionSection from "./VisionSection";
 
 export default function Home() {
   return (
-    <div>
+    <div className="">
        <HeroSection/>
        <ProductFeatures/>
        <AboutUs/>
        <MissionSection/>
        <VisionSection/>
        <RegisteredInstitutes/>
-       <ProductShowcase/>
-       <ServicesSection/>
+      <div id="product">
+         <ProductShowcase />
+      </div>
+       <div id="service">
+        <ServicesSection/>
+       </div>
        <FeaturesGrid/>
        <KeyBenefits/>
-       <ContactSection/>
+     <div id="contact">
+        <ContactSection/>
+     </div>
        <AppDownloadSection/>
        <LatestBlogSection/>
        <HowItWorks/>
