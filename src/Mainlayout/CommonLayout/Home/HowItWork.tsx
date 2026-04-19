@@ -1,202 +1,132 @@
-import  { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+"use client";
+
+import { motion } from "framer-motion";
 import { 
   Building2, 
   Users, 
   Settings2, 
-  CheckCircle2, 
-  ArrowRight 
+  ArrowRight,
+  Zap,
+  CheckCircle2
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-const FormSetupMockup = () => (
-    <div className="absolute bottom-4 left-4 w-[180px] p-4 bg-white/90 backdrop-blur-sm rounded-xl shadow-xl space-y-2 border border-white/20 hidden md:block z-20">
-        <div className="h-4 w-20 bg-primary/20 rounded-full" />
-        <div className="h-6 w-full bg-slate-100 rounded-full" />
-        <div className="h-6 w-full bg-slate-100 rounded-full" />
-    </div>
-)
-const TeamManagementMockup = () => (
-    <div className="absolute bottom-4 left-4 w-[200px] p-4 bg-white/90 backdrop-blur-sm rounded-xl shadow-xl flex items-center gap-3 border border-white/20 hidden md:block z-20">
-        <Users className="w-10 h-10 text-primary" />
-        <div className="space-y-1 flex-grow">
-            <div className="h-4 w-24 bg-slate-100 rounded-full" />
-            <div className="h-4 w-32 bg-primary/20 rounded-full" />
-        </div>
-    </div>
-)
-const DashboardMockup = () => (
-    <div className="absolute bottom-4 left-4 w-[220px] p-4 bg-white/90 backdrop-blur-sm rounded-xl shadow-xl space-y-2 border border-white/20 hidden md:block z-20">
-        <div className="flex justify-between items-center gap-4">
-            <div className="h-10 w-10 bg-emerald-500 rounded-full flex items-center justify-center text-white"><CheckCircle2 className="w-6 h-6"/></div>
-            <div className="h-10 w-full bg-slate-100 rounded-full" />
-        </div>
-    </div>
-)
+
 const JOURNEY_STEPS = [
   {
     id: 1,
     title: "Onboarding & Setup",
-    desc: "Register Your Institution And Set Up Your Profile With Basic Information About Your School, Classes, And Administrative Needs.",
-    icon: <Building2 className="w-8 h-8 text-white" />,
-    color: "from-blue-700 to-indigo-800",
-    visual: <FormSetupMockup />
+    desc: "Register your institution and configure your profile with custom classes and administrative protocols.",
+    icon: <Building2 className="w-6 h-6" />,
+    color: "group-hover:text-blue-500",
+    glow: "bg-blue-500/10"
   },
   {
     id: 2,
     title: "Team & Student Sync",
-    desc: "Add Teachers, Students, And Staff Members. Our Intuitive System Handles Attendance, Assignments, Exams, And Communication Seamlessly.",
-    icon: <Users className="w-8 h-8 text-white" />,
-    color: "from-indigo-700 to-purple-800",
-    visual: <TeamManagementMockup />
+    desc: "Sync teachers and students effortlessly. Our system automates attendance, exams, and daily logs.",
+    icon: <Users className="w-6 h-6" />,
+    color: "group-hover:text-indigo-500",
+    glow: "bg-indigo-500/10"
   },
   {
     id: 3,
     title: "Monitor & Growth",
-    desc: "Monitor Progress, Generate Reports, And Manage Your Entire Institution From Anywhere. Complete Digitalization In Just A Few Clicks!",
-    icon: <Settings2 className="w-8 h-8 text-white" />,
-    color: "from-purple-700 to-blue-800",
-    visual: <DashboardMockup />
+    desc: "Generate real-time reports and manage your entire institution from one centralized dashboard.",
+    icon: <Settings2 className="w-6 h-6" />,
+    color: "group-hover:text-emerald-500",
+    glow: "bg-emerald-500/10"
   }
 ];
 
-export default function InteractiveOnboarding() {
-  const targetRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: targetRef });
-  
-
+export default function RefinedJourney() {
   return (
-    <section ref={targetRef} className="py-24 bg-white dark:bg-slate-950 min-h-[120vh]">
-      <div className="container mx-auto px-6 max-w-7xl relative">
+    <section className="py-32 bg-white dark:bg-slate-950 overflow-hidden">
+      <div className="container mx-auto px-6 max-w-7xl">
         
-        {/* Section Header */}
-        <div className="text-center mb-16 space-y-4">
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            className="text-sm font-bold tracking-widest text-primary uppercase"
-          >
-            Digitalization Pipeline
-          </motion.h2>
-          <motion.h3 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-4xl sticky md:text-6xl font-black tracking-tighter text-slate-900 dark:text-white leading-[1.05]"
-          >
-            How Does <span className="text-blue-600">It Work?</span>
-          </motion.h3 >
-          <p className="text-lg text-slate-500 max-w-lg mx-auto leading-relaxed pt-2">
-            "Your 3-step blueprint to educational modernization."
-          </p>
+        {/* Header - Stays clean */}
+        <div className="flex flex-col items-center text-center mb-24 space-y-4">
+          <div className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-600/5 border border-blue-500/10 text-blue-600 font-bold text-[10px] uppercase tracking-widest">
+            <Zap className="w-3.5 h-3.5" />
+            The Process
+          </div>
+          <h2 className="text-5xl md:text-7xl font-black tracking-tight text-slate-900 dark:text-white">
+            Simple <span className="italic bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Onboarding</span>
+          </h2>
         </div>
 
-        {/* The Dynamic Journey Card */}
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          className="relative rounded-[2.5rem] bg-blue-900 shadow-2xl overflow-hidden p-12 md:p-16 text-white"
-        >
-          {/* Dynamic Background Gradient that changes on scroll */}
-          <motion.div 
-            className="absolute inset-0 bg-gradient-to-br"
-            style={{ 
-              background: useTransform(
-                scrollYProgress,
-                [0, 0.4, 0.7, 1],
-                [
-                  "linear-gradient(to bottom right, #1d4ed8, #4338ca)", // Step 1
-                  "linear-gradient(to bottom right, #4338ca, #6d28d9)", // Step 2
-                  "linear-gradient(to bottom right, #6d28d9, #1d4ed8)", // Step 3
-                  "linear-gradient(to bottom right, #1d4ed8, #4338ca)", // Post-scroll
-                ]
-              )
-            }}
-          />
+        {/* The Grid - No longer relies on complex scroll percentages */}
+        <div className="grid lg:grid-cols-3 gap-8 relative">
+          
+          {/* Connecting Line (Desktop Only) */}
+          <div className="absolute top-1/2 left-0 w-full h-0.5 bg-slate-100 dark:bg-slate-800 -translate-y-12 hidden lg:block -z-10" />
 
-          {/* Floating 'Active Step' Indicator */}
-          <div className="absolute top-8 left-1/2 -translate-x-1/2 flex items-center gap-2 z-20">
-            {JOURNEY_STEPS.map((_, i) => (
-              <motion.div
-                key={i}
-                className="w-20 h-1.5 rounded-full bg-white/20 overflow-hidden"
-              >
-                <motion.div 
-                  className="h-full bg-white"
-                  style={{ 
-                    width: i === 0 
-                      ? useTransform(scrollYProgress, [0, 0.3], ["0%", "100%"]) 
-                      : i === 1 
-                      ? useTransform(scrollYProgress, [0.3, 0.6], ["0%", "100%"])
-                      : useTransform(scrollYProgress, [0.6, 0.9], ["0%", "100%"])
-                  }}
-                />
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Horizontal Journey Nodes */}
-          <div className="grid md:grid-cols-3 gap-16 items-start relative z-10 pt-16">
-            {JOURNEY_STEPS.map((step, index) => (
-              <motion.div
-                key={step.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="flex flex-col items-center text-center group"
-              >
-                {/* Visual Number Node with Glow */}
-                <motion.div
-                  style={{ 
-                    borderColor: useTransform(scrollYProgress, [0 + index * 0.33, 0.33 + index * 0.33], ["rgba(255,255,255,0.1)", "#22c55e"]) 
-                  }}
-                  className="relative w-24 h-24 rounded-full bg-white/10 flex items-center justify-center text-3xl font-extrabold mb-10 border-4 border-white/20 group-hover:scale-105 transition-transform"
-                >
-                  {index + 1}
-                  {/* Floating Icon */}
-                  <div className="absolute -top-6 -right-6 p-3 rounded-2xl bg-white shadow-xl text-primary">
-                    {step.icon}
-                  </div>
-                  {/* Active Pulse effect when scroll is over it */}
-                   <motion.div 
-                    className="absolute inset-0 bg-white/10 rounded-full blur-xl pointer-events-none"
-                    style={{ 
-                      opacity: useTransform(scrollYProgress, [0 + index * 0.33, 0.33 + index * 0.33], [0, 1]) 
-                    }}
-                    />
-                </motion.div>
+          {JOURNEY_STEPS.map((step, idx) => (
+            <motion.div
+              key={step.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ delay: idx * 0.2 }}
+              className="group relative"
+            >
+              <div className="flex flex-col items-center text-center p-10 rounded-[3rem] bg-slate-50 dark:bg-slate-900/50 border border-slate-100 dark:border-slate-800 transition-all duration-500 hover:bg-white dark:hover:bg-slate-900 hover:shadow-2xl hover:shadow-blue-500/5">
                 
-                {/* Step Info */}
-                <h4 className="text-xl font-bold mb-3">{step.title}</h4>
-                <p className="text-blue-50/80 text-sm md:text-base leading-relaxed font-medium line-clamp-3">
+                {/* Step Number Badge */}
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-slate-900 dark:bg-white text-white dark:text-slate-900 text-[10px] font-black uppercase tracking-tighter">
+                  Step 0{idx + 1}
+                </div>
+
+                {/* Icon Circle */}
+                <div className="relative mb-8">
+                  <div className="w-24 h-24 rounded-[2.5rem] bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 flex items-center justify-center transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6">
+                    <div className="text-slate-600 transition-colors duration-500 group-hover:text-blue-600">
+                      {step.icon}
+                    </div>
+                  </div>
+                  {/* Status Indicator */}
+                  <motion.div 
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    transition={{ delay: idx * 0.3 + 0.5 }}
+                    className="absolute -bottom-2 -right-2 w-8 h-8 rounded-full bg-emerald-500 border-4 border-white dark:border-slate-900 flex items-center justify-center"
+                  >
+                    <CheckCircle2 className="w-4 h-4 text-white" />
+                  </motion.div>
+                </div>
+
+                {/* Text Content */}
+                <h4 className="text-2xl font-black text-slate-900 dark:text-white mb-4 tracking-tight">
+                  {step.title}
+                </h4>
+                <p className="text-slate-500 dark:text-slate-400 font-medium leading-relaxed text-sm">
                   {step.desc}
                 </p>
-                
-                {/* Hover Visual Placeholder */}
-                <div className="w-full h-12 bg-white/5 rounded-xl border border-white/10 mt-6 flex items-center justify-center text-xs text-blue-100 italic opacity-50 group-hover:opacity-100 transition-opacity">
-                  Visual Coming Soon
-                </div>
-              </motion.div>
-            ))}
-          </div>
 
-          {/* Bottom Call to Action */}
-          <motion.div 
-            className="mt-20 pt-10 border-t border-white/10 text-center relative z-10"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-          >
-            <p className="text-xs uppercase font-black text-blue-200 tracking-widest mb-4">Immediate Trial</p>
-            <Button size="lg" className="rounded-full px-12 h-14 text-lg font-semibold gap-3 bg-white text-blue-900 hover:scale-105 transition-transform shadow-xl shadow-black/10">
-              Try Demo School <ArrowRight className="w-5 h-5" />
-            </Button>
-          </motion.div>
+                {/* Hover Visual Detail */}
+                <div className="mt-8 w-full pt-8 border-t border-slate-100 dark:border-slate-800">
+                  <div className="flex items-center justify-center gap-2 text-blue-600 font-black text-[10px] uppercase tracking-[0.2em] opacity-0 group-hover:opacity-100 transition-opacity">
+                    View Tutorial <ArrowRight className="w-3 h-3" />
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Action Button */}
+        <motion.div 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          className="mt-24 flex flex-col items-center gap-6"
+        >
+          <Button className="h-16 px-12 rounded-2xl bg-blue-600 text-white font-black hover:bg-blue-700 transition-all hover:scale-105 shadow-xl shadow-blue-500/20">
+            Start Free Implementation
+          </Button>
+          <p className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-400">
+            No Credit Card Required • Setup in 24h
+          </p>
         </motion.div>
       </div>
     </section>
   );
 }
-
-// Minimalist visual placeholders for Step Visuals (You can replace these with your screenshots later)
