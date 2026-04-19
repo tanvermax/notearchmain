@@ -203,7 +203,7 @@ const Navbar = () => {
                       to={item.href}
                       onClick={() => setIsOpen(false)}
                       className={cn(
-                        "block p-4 text-3xl font-black tracking-tighter transition-all",
+                        "block p-2 text-xl font-black tracking-tighter transition-all",
                         isActive(item.href) 
                           ? "text-blue-600 dark:text-blue-400" 
                           : "text-slate-900 dark:text-white"
@@ -225,7 +225,7 @@ const Navbar = () => {
             >
               <div className="flex items-center justify-between p-4 rounded-2xl bg-slate-100 dark:bg-slate-900">
                 <span className="text-sm font-bold text-slate-500">Preferences</span>
-                <div className="flex gap-2">
+                <div className="flex flex-col md:flex-row gap-2">
                   <LangToggle />
                   <ModeToggle />
                 </div>
