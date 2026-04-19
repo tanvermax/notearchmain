@@ -1,4 +1,4 @@
-"use client";
+
 
 import { motion } from "framer-motion";
 import { ArrowRight, Landmark, GraduationCap, Monitor, Tablet, Sparkle } from "lucide-react";

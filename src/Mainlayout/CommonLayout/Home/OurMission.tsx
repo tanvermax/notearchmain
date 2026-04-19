@@ -1,4 +1,4 @@
-"use client";
+
 
 import { motion } from "framer-motion";
 import { Rocket,  Zap, Link, Globe, ShieldCheck } from "lucide-react";

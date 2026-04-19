@@ -1,32 +1,12 @@
-"use client";
+
 
 import { motion } from "framer-motion";
 import { Calendar, Eye, ArrowRight, Newspaper } from "lucide-react";
 import { Link } from "react-router-dom"; // Assuming standard router; change to "next/link" if using Next.js
 import { cn } from "@/lib/utils";
+import { BLOG_POSTS } from "./blog";
 
-const BLOG_POSTS = [
-  {
-    id: 1,
-    title: "NoteArch: Transforming Academic Management for Global Success",
-    category: "EDUCATION",
-    date: "Dec 28, 2025",
-    views: "189 Views",
-    description: "Discover how NoteArch is redefining institutional efficiency through decentralized infrastructure and cloud-native tools.",
-    image: "https://images.pexels.com/photos/31040303/pexels-photo-31040303.jpeg",
-    color: "bg-blue-600"
-  },
-  {
-    id: 2,
-    title: "Revolutionizing Education Through AI-Powered Intelligence",
-    category: "NEWS",
-    date: "Nov 28, 2025",
-    views: "696 Views",
-    description: "NoteArch is an artificial intelligence powered, secured and cost effective Intelligent Academic Lifecycle Management System.",
-    image: "https://images.pexels.com/photos/18069494/pexels-photo-18069494.png",
-    color: "bg-emerald-600"
-  }
-];
+
 
 export default function LatestBlogSection() {
   return (
@@ -59,7 +39,7 @@ export default function LatestBlogSection() {
               viewport={{ once: true }}
               className="group cursor-pointer"
             >
-              <div className="bg-slate-50 dark:bg-slate-900/50 rounded-[3rem] overflow-hidden border border-slate-100 dark:border-slate-800 transition-all duration-500 hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.1)]">
+              <Link to={`/blog/${post.id}`} className="bg-slate-50 dark:bg-slate-900/50 rounded-[3rem] overflow-hidden border border-slate-100 dark:border-slate-800 transition-all duration-500 hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.1)]">
                 
                 {/* Image Container with Hover Scale */}
                 <div className="relative h-72 overflow-hidden">
@@ -108,7 +88,7 @@ export default function LatestBlogSection() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             </motion.div>
           ))}
         </div>

@@ -1,4 +1,4 @@
-"use client";
+
 
 import { motion } from "framer-motion";
 import { Eye, Globe, Lightbulb, Sparkles, Map } from "lucide-react";

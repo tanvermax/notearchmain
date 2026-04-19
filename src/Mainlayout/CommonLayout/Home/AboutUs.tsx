@@ -1,4 +1,4 @@
-"use client";
+
 
 import { motion } from "framer-motion";
 import { ArrowRight, BrainCircuit, Sparkles, GraduationCap, Users, PencilRuler, Database } from "lucide-react";

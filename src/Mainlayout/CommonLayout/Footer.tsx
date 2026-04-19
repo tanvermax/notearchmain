@@ -1,4 +1,4 @@
-"use client";
+
 
 import { NavLink } from "react-router-dom"; // Standard router
 import { Send, ArrowRight, Globe } from "lucide-react";

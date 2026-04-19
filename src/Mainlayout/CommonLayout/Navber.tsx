@@ -1,4 +1,4 @@
-"use client";
+
 
 import { useState, useEffect, useCallback } from "react";
 import { LogIn, Menu, X, ExternalLink, Sparkles } from "lucide-react";

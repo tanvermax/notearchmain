@@ -8,7 +8,10 @@ export default function CommonLayout() {
   return (
       <>
       <Navber />
+      {/* <div className='flex-grow'> */}
        <Outlet/>
+
+      {/* </div> */}
       <Footer/>
       </>
 

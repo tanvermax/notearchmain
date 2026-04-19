@@ -1,4 +1,4 @@
-"use client";
+
 
 import { motion } from "framer-motion";
 import { ShieldCheck, Award } from "lucide-react";
