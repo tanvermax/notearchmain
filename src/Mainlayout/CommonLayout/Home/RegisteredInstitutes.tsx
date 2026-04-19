@@ -1,7 +1,8 @@
+"use client";
 
 import { motion } from "framer-motion";
+import { ShieldCheck, Award } from "lucide-react";
 
-// Sample data - You can add more institutes here
 const INSTITUTES = [
   { id: 1, name: "Sunatul Jamaat of Ontario Canada", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6vx8jdprrH1-Y3nbzHXVU1LO5m3sD_AmMAIx9lXW83Q&s" },
   { id: 2, name: "Oxford Academic Institute", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6vx8jdprrH1-Y3nbzHXVU1LO5m3sD_AmMAIx9lXW83Q&s" },
@@ -11,58 +12,93 @@ const INSTITUTES = [
 ];
 
 export default function RegisteredInstitutes() {
-  // Create a doubled list to ensure the marquee never has a gap
-  const marqueeItems = [...INSTITUTES, ...INSTITUTES];
+  // Triple the list to ensure perfectly seamless looping on very wide screens
+  const marqueeItems = [...INSTITUTES, ...INSTITUTES, ...INSTITUTES];
 
   return (
-    <section className="py-24 bg-slate-50 dark:bg-slate-900/20 overflow-hidden">
-      <div className="container mx-auto px-6 mb-12 text-center">
-        <motion.h2 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-4xl md:text-5xl font-black tracking-tighter text-blue-500 dark:text-blue-500"
-        >
-          Our Registered <span className="text-primary">Institutes</span>
-        </motion.h2>
-        <p className="mt-4 text-slate-500 dark:text-slate-400">
-          Trusted by leading educational organizations worldwide.
-        </p>
+    <section id="partners" className="py-32 bg-white dark:bg-slate-950 transition-colors overflow-hidden">
+      <div className="container mx-auto px-6 mb-20">
+        <div className="flex flex-col items-center text-center space-y-4">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/5 border border-emerald-500/10 text-emerald-600 dark:text-emerald-400"
+          >
+            <ShieldCheck className="w-4 h-4" />
+            <span className="text-[10px] font-black uppercase tracking-[0.3em]">Verified Partners</span>
+          </motion.div>
+
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-4xl md:text-6xl font-black tracking-tight text-slate-900 dark:text-white"
+          >
+            Trusted by Global <span className="bg-gradient-to-r from-blue-600 to-indigo-500 bg-clip-text text-transparent">Academia</span>
+          </motion.h2>
+          
+          <p className="max-w-xl text-slate-500 dark:text-slate-400 font-medium leading-relaxed">
+            NoteArch powers leading educational organizations worldwide, from North America to Asia, ensuring 360° digitalization.
+          </p>
+        </div>
       </div>
 
-      {/* The Infinite Marquee */}
-      <div className="relative flex w-full overflow-hidden">
-        {/* Left & Right Gradient Fades to make it look smooth */}
-        <div className="absolute left-0 top-0 bottom-0 w-32 z-10 bg-gradient-to-r from-slate-50 dark:from-slate-950 to-transparent" />
-        <div className="absolute right-0 top-0 bottom-0 w-32 z-10 bg-gradient-to-l from-slate-50 dark:from-slate-950 to-transparent" />
+      {/* The Infinite Marquee Container */}
+      <div className="relative flex w-full">
+        {/* Soft edge masking for the "vanishing" effect */}
+        <div className="absolute left-0 top-0 bottom-0 w-40 z-20 bg-gradient-to-r from-white dark:from-slate-950 to-transparent" />
+        <div className="absolute right-0 top-0 bottom-0 w-40 z-20 bg-gradient-to-l from-white dark:from-slate-950 to-transparent" />
 
         <motion.div 
-          className="flex gap-8 whitespace-nowrap"
-          animate={{ x: ["0%", "-50%"] }}
+          className="flex gap-10 whitespace-nowrap"
+          animate={{ x: ["0%", "-33.33%"] }}
           transition={{ 
             repeat: Infinity, 
-            duration: 30, 
+            duration: 40, 
             ease: "linear" 
           }}
         >
           {marqueeItems.map((item, index) => (
             <div 
               key={index}
-              className="group w-[280px] bg-white dark:bg-slate-900 p-8 rounded-2xl border border-slate-200 dark:border-slate-800 flex flex-col items-center justify-center gap-6 hover:shadow-xl hover:border-primary/50 transition-all duration-300"
+              className="group relative w-[320px] bg-slate-50 dark:bg-slate-900/40 p-10 rounded-[2.5rem] border border-slate-200/50 dark:border-slate-800/50 flex flex-col items-center justify-center gap-8 hover:bg-white dark:hover:bg-slate-900 hover:border-blue-500/30 transition-all duration-500 hover:shadow-[0_20px_50px_rgba(0,0,0,0.05)]"
             >
-              <div className="w-24 h-24 rounded-full border-2 border-primary/20 p-2 flex items-center justify-center group-hover:scale-110 transition-transform">
-                <img 
-                  src={item.logo} 
-                  alt={item.name} 
-                  className="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all"
-                />
+              {/* Floating Decorative Icon */}
+              <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity">
+                <Award className="w-5 h-5 text-blue-500" />
               </div>
-              <p className="text-sm font-bold text-slate-700 dark:text-slate-300 text-center whitespace-normal leading-tight">
-                {item.name}
-              </p>
+
+              {/* Logo Frame */}
+              <div className="relative">
+                <div className="absolute inset-0 bg-blue-500/20 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="relative w-28 h-28 rounded-full bg-white dark:bg-slate-800 shadow-inner p-4 flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
+                    <img 
+                    src={item.logo} 
+                    alt={item.name} 
+                    className="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-500"
+                    />
+                </div>
+              </div>
+
+              <div className="space-y-2 text-center">
+                <p className="text-[15px] font-black text-slate-800 dark:text-slate-200 whitespace-normal leading-tight group-hover:text-blue-600 transition-colors">
+                    {item.name}
+                </p>
+                <div className="h-1 w-0 group-hover:w-full bg-blue-500 mx-auto transition-all duration-500 rounded-full" />
+              </div>
             </div>
           ))}
         </motion.div>
+      </div>
+
+      {/* Trust Bar */}
+      <div className="container mx-auto px-6 mt-20 flex justify-center">
+        <div className="flex items-center gap-8 opacity-40 grayscale pointer-events-none">
+            {/* Optional: Add small text labels or tiny secondary logos here for more depth */}
+            <span className="text-[10px] font-black uppercase tracking-widest">Global Standards</span>
+            <span className="text-[10px] font-black uppercase tracking-widest">ISO Certified Workflows</span>
+            <span className="text-[10px] font-black uppercase tracking-widest">Data Privacy First</span>
+        </div>
       </div>
     </section>
   );
