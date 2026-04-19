@@ -87,7 +87,7 @@ export default function BlogDetailsPage() {
               </span>
             </div>
             
-            <h1 className="text-4xl md:text-6xl font-black tracking-tight text-slate-900 dark:text-white leading-[1.1]">
+            <h1 className="text-4xl text-left md:text-6xl font-black tracking-tight text-slate-900 dark:text-white leading-[1.1]">
               {post.title}
             </h1>
 
@@ -119,7 +119,7 @@ export default function BlogDetailsPage() {
           </aside>
 
           {/* Text Content */}
-          <article className="lg:col-span-11 prose prose-slate dark:prose-invert max-w-none 
+          <article className="lg:col-span-11 prose prose-slate dark:prose-invert max-w-none text-left
             prose-headings:font-black prose-headings:tracking-tight prose-headings:text-slate-900 dark:prose-headings:text-white
             prose-p:text-slate-600 dark:prose-p:text-slate-400 prose-p:text-lg prose-p:leading-relaxed
             prose-blockquote:border-l-4 prose-blockquote:border-blue-600 prose-blockquote:bg-slate-50 dark:prose-blockquote:bg-slate-900 prose-blockquote:p-8 prose-blockquote:rounded-2xl prose-blockquote:italic
