@@ -1,128 +1,179 @@
+"use client";
 
 import { motion } from "framer-motion";
-import { CheckCircle2,  Sparkles } from "lucide-react";
-
+import { 
+  CheckCircle2,  
+  Sparkles, 
+  Smartphone, 
+  Zap, 
+  ShieldCheck,
+  BellRing
+} from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const APP_HIGHLIGHTS = [
-  { icon: <CheckCircle2 className="w-5 h-5 text-emerald-500" />, text: "Real-time Attendance" },
-  { icon: <CheckCircle2 className="w-5 h-5 text-emerald-500" />, text: "Direct Parent-Teacher Messaging" },
-  { icon: <CheckCircle2 className="w-5 h-5 text-emerald-500" />, text: "Offline Digital Gradebook Access" },
-  { icon: <CheckCircle2 className="w-5 h-5 text-emerald-500" />, text: "365/24/7 Academic Sync" }
+  { icon: <Zap className="w-4 h-4 text-amber-500" />, text: "Real-time Attendance" },
+  { icon: <BellRing className="w-4 h-4 text-blue-500" />, text: "Direct Messaging" },
+  { icon: <ShieldCheck className="w-4 h-4 text-emerald-500" />, text: "Offline Gradebook" },
+  { icon: <Sparkles className="w-4 h-4 text-purple-500" />, text: "Academic Sync" }
 ];
 
 export default function SaaSShowcaseAppDownload() {
   return (
-    <section className="py-24 bg-gradient-to-b from-white to-slate-50 dark:from-slate-950 dark:to-slate-900 overflow-hidden relative">
+    <section id="mobile-app" className="py-32 relative bg-white dark:bg-slate-950 overflow-hidden">
       
-      {/* Dynamic Background Glow Effect (Stripe Style) */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-blue-500/10 blur-[130px] rounded-full opacity-60 pointer-events-none" />
+      {/* Structural Background Accents */}
+      <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_10%_20%,rgba(59,130,246,0.05)_0%,transparent_50%)]" />
       
       <div className="container mx-auto px-6 max-w-7xl relative z-10">
-        <div className="grid lg:grid-cols-2 gap-20 items-center">
+        <div className="grid lg:grid-cols-12 gap-16 lg:gap-24 items-center">
           
-          {/* LEFT SIDE: Floating, Interactive Devices */}
-          <div className="relative group flex justify-center lg:justify-start">
+          {/* LEFT SIDE: The Device Stage (Col 5) */}
+          <div className="lg:col-span-5 relative flex justify-center">
             
-            {/* Secondary Phone (Rotated Behind) */}
+            {/* Background Glow */}
+            <div className="absolute inset-0 bg-blue-500/20 blur-[120px] rounded-full scale-75 animate-pulse" />
+
+            {/* Secondary Device (Perspective) */}
             <motion.div
-              initial={{ opacity: 0, x: 50, rotate: 0 }}
-              whileInView={{ opacity: 1, x: -60, rotate: -15 }}
+              initial={{ opacity: 0, x: 40, rotate: 10 }}
+              whileInView={{ opacity: 0.4, x: 80, rotate: 25 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              className="absolute z-0 w-[240px] md:w-[280px] hidden md:block"
+              transition={{ duration: 1, ease: "easeOut" }}
+              className="absolute z-0 w-[280px] hidden lg:block grayscale"
             >
-              <img 
-                src="https://images.pexels.com/photos/5053841/pexels-photo-5053841.jpeg" 
-                alt="Mobile App Interface 1" 
-                className="rounded-[3rem] shadow-2xl border-[8px] border-slate-900 dark:border-slate-800"
-              />
+              <div className="aspect-[9/19] rounded-[3rem] border-[8px] border-slate-900 bg-slate-800 shadow-2xl" />
             </motion.div>
 
-            {/* Primary Phone (Center) with Deep Shadow */}
+            {/* Primary Device */}
             <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, scale: 0.9, y: 30 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, type: "spring", stiffness: 100 }}
-              className="relative z-10 w-[260px] md:w-[320px] lg:w-[350px]"
+              transition={{ duration: 0.8, type: "spring" }}
+              className="relative z-10 w-[300px] md:w-[340px]"
             >
-              <img 
-                src="https://images.pexels.com/photos/50614/pexels-photo-50614.jpeg" 
-                alt="Mobile App Interface 2" 
-                className="rounded-[3.5rem] shadow-[0_50px_100px_-20px_rgba(0,0,0,0.3)] border-[8px] border-slate-900 dark:border-slate-800"
-              />
+              {/* iPhone Mockup Frame */}
+              <div className="relative aspect-[9/19] rounded-[3.5rem] border-[12px] border-slate-950 bg-slate-900 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.4)] overflow-hidden">
+                 {/* Internal UI Mockup */}
+                 <div className="absolute inset-0 bg-gradient-to-b from-blue-600 to-indigo-700 p-6 flex flex-col justify-between">
+                    <div className="w-1/2 h-1 bg-white/20 mx-auto rounded-full mb-8" />
+                    <div className="space-y-4">
+                        <div className="w-full h-32 bg-white/10 rounded-2xl backdrop-blur-md" />
+                        <div className="grid grid-cols-2 gap-4">
+                            <div className="h-20 bg-white/10 rounded-2xl backdrop-blur-md" />
+                            <div className="h-20 bg-white/10 rounded-2xl backdrop-blur-md" />
+                        </div>
+                    </div>
+                    <div className="w-full h-40 bg-white rounded-t-3xl mt-auto" />
+                 </div>
+              </div>
               
-              {/* Floating 'Attendance' UI Element (Contextual Visual) */}
+              {/* Floating Glass Widget: Attendance */}
               <motion.div 
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -right-12 top-20 bg-white dark:bg-slate-800 p-4 rounded-2xl shadow-xl border border-white/20 hidden lg:block"
+                animate={{ y: [0, -15, 0] }}
+                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute -right-12 top-24 z-20 bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl p-5 rounded-[2rem] shadow-2xl border border-white/20 hidden md:flex items-center gap-4"
               >
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center">
-                    <CheckCircle2 className="w-6 h-6 text-emerald-600" />
-                  </div>
-                  <div>
-                    <p className="text-[10px] text-slate-400 font-bold uppercase">Dashboard</p>
-                    <p className="text-sm font-black text-slate-900 dark:text-white">Attendance Marked</p>
-                  </div>
+                <div className="w-12 h-12 rounded-2xl bg-emerald-500 flex items-center justify-center shadow-lg shadow-emerald-500/20">
+                  <CheckCircle2 className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <p className="text-[10px] text-slate-400 font-black uppercase tracking-widest">Live Status</p>
+                  <p className="text-sm font-black text-slate-900 dark:text-white">Attendance Verified</p>
+                </div>
+              </motion.div>
+
+              {/* Floating Glass Widget: Notification */}
+              <motion.div 
+                animate={{ y: [0, 15, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                className="absolute -left-12 bottom-24 z-20 bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl p-5 rounded-[2rem] shadow-2xl border border-white/20 hidden md:flex items-center gap-4"
+              >
+                <div className="w-12 h-12 rounded-2xl bg-blue-600 flex items-center justify-center shadow-lg shadow-blue-500/20">
+                  <BellRing className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <p className="text-[10px] text-slate-400 font-black uppercase tracking-widest">New Message</p>
+                  <p className="text-sm font-black text-slate-900 dark:text-white">Teacher: Grade Posted</p>
                 </div>
               </motion.div>
             </motion.div>
           </div>
 
-          {/* RIGHT SIDE: Dynamic Text & Actionable Links */}
-          <div className="space-y-10 text-center lg:text-left">
-            <div className="space-y-4">
-              <div className="flex flex-col gap-2">
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  className="inline-flex items-center gap-2 px-3 py-1 w-fit rounded-full bg-blue-500/10 border border-blue-500/20 text-primary text-xs font-bold"
-                >
-                  <Sparkles className="w-3.5 h-3.5" />
-                  Mobile First Academic Lifecycle
-                </motion.div>
-                
-                <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-slate-900 dark:text-white leading-[1.05]">
-                  The Power of NoteArch <br />
-                  <span className="text-primary">In Your Pocket</span>
-                </h2>
-              </div>
+          {/* RIGHT SIDE: Content (Col 7) */}
+          <div className="lg:col-span-7 space-y-12 text-center lg:text-left">
+            <div className="space-y-6">
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-600/5 border border-blue-500/10 text-blue-600 dark:text-blue-400 w-fit mx-auto lg:mx-0"
+              >
+                <Smartphone className="w-4 h-4" />
+                <span className="text-[10px] font-black uppercase tracking-[0.3em]">Mobile Ecosystem</span>
+              </motion.div>
               
-              <p className="text-xl text-slate-500 dark:text-slate-400 leading-relaxed max-w-lg mx-auto lg:mx-0">
-                Access your personalized learning environment anytime, anywhere. 
-                Our mobile app syncs instantly, keeping you connected on the go.
+              <h2 className="text-5xl md:text-7xl font-black tracking-tight text-slate-900 dark:text-white leading-[0.9]">
+                NoteArch <br />
+                <span className="bg-gradient-to-r from-blue-600 to-indigo-500 bg-clip-text text-transparent italic">In Your Pocket</span>
+              </h2>
+              
+              <p className="text-lg text-slate-500 dark:text-slate-400 leading-relaxed max-w-xl mx-auto lg:mx-0 font-medium">
+                Bridge the gap between home and the classroom. Our mobile experience 
+                ensures that academic intelligence is always within reach, keeping students 
+                and parents synced in real-time.
               </p>
             </div>
 
-            {/* Feature Checklist - Clean and modern */}
-            <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
+            {/* Micro-Features Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-lg mx-auto lg:mx-0">
               {APP_HIGHLIGHTS.map(item => (
-                <li key={item.text} className="flex items-center gap-3 text-sm font-medium text-slate-700 dark:text-slate-300">
-                  {item.icon}
-                  {item.text}
-                </li>
+                <motion.div 
+                  key={item.text} 
+                  whileHover={{ x: 5 }}
+                  className="flex items-center gap-4 p-4 rounded-2xl bg-slate-50 dark:bg-slate-900/50 border border-slate-100 dark:border-slate-800 transition-colors hover:bg-white"
+                >
+                  <div className="p-2 rounded-xl bg-white dark:bg-slate-800 shadow-sm border border-slate-100 dark:border-slate-700">
+                    {item.icon}
+                  </div>
+                  <span className="text-xs font-black text-slate-700 dark:text-slate-200 uppercase tracking-tight">
+                    {item.text}
+                  </span>
+                </motion.div>
               ))}
-            </ul>
+            </div>
 
-            {/* Action Buttons (Store Links) */}
-            <div className="flex flex-wrap justify-center lg:justify-start gap-4 pt-6">
-              <motion.a href="#" whileHover={{ y: -5 }} className="transition-transform duration-300">
+            {/* CTA Buttons */}
+            <div className="flex flex-wrap justify-center lg:justify-start gap-4 pt-4">
+              <motion.a 
+                href="#" 
+                whileHover={{ scale: 1.05 }} 
+                whileTap={{ scale: 0.95 }}
+                className="transition-all"
+              >
                 <img 
                   src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" 
-                  alt="Get it on Google Play" 
-                  className="h-14 drop-shadow-lg"
+                  alt="Play Store" 
+                  className="h-16 drop-shadow-2xl"
                 />
               </motion.a>
-              <motion.a href="#" whileHover={{ y: -5 }} className="transition-transform duration-300">
+              <motion.a 
+                href="#" 
+                whileHover={{ scale: 1.05 }} 
+                whileTap={{ scale: 0.95 }}
+                className="transition-all"
+              >
                 <img 
                   src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" 
-                  alt="Download on the App Store" 
-                  className="h-14 drop-shadow-lg"
+                  alt="App Store" 
+                  className="h-16 drop-shadow-2xl"
                 />
               </motion.a>
             </div>
+            
+            <p className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-400">
+                Available for Android & iOS (Coming Soon)
+            </p>
           </div>
 
         </div>
