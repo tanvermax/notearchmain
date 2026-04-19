@@ -1,74 +1,50 @@
-# React + TypeScript + Vite
+# <p align="center"><img src="./src/assets/logo.png" width="80" alt="NoteArch Logo" /><br>NoteArch Ecosystem</p>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<p align="center">
+  <img src="https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react" />
+  <img src="https://img.shields.io/badge/Tailwind_CSS-3.0-38B2AC?style=for-the-badge&logo=tailwind-css" />
+  <img src="https://img.shields.io/badge/Framer_Motion-11.0-0055FF?style=for-the-badge&logo=framer" />
+  <img src="https://img.shields.io/badge/TypeScript-5.0-007ACC?style=for-the-badge&logo=typescript" />
+</p>
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🌐 Project Overview
+**NoteArch** is an enterprise-grade, intelligent academic lifecycle management system. Built for the future of education, it synchronizes students, parents, and institutions into a single, cloud-native ecosystem. From real-time attendance tracking to AI-powered academic analysis, NoteArch is the definitive blueprint for institutional modernization.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ✨ Key Features
 
-## Expanding the ESLint configuration
+- **🚀 Global Accessibility:** 24/7 cloud synchronization allowing educators to manage institutions from anywhere in the world.
+- **🤖 AI-Powered Analysis:** Intelligent tracking of student progress and institutional growth metrics.
+- **📱 Mobile-First Ecosystem:** A dedicated mobile experience for real-time messaging, attendance, and gradebook access.
+- **🛡️ Disaster Resilient:** Robust architecture designed for uninterrupted learning with seamless offline modes.
+- **📊 Modular Management:** Comprehensive modules for Teachers, Students, Exams, Sessions, and Holidays.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🛠️ Tech Stack
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- **Frontend:** React.js / Vite
+- **Styling:** Tailwind CSS + Shadcn/UI
+- **Animations:** Framer Motion
+- **Icons:** Lucide React
+- **Routing:** React Router DOM (with HashLink for section navigation)
+- **Forms:** React Hook Form + Zod
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 📂 Project Structure
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-# notearchmain
+```bash
+src/
+├── assets/             # Branding images and static media
+├── components/         # Reusable UI components
+│   ├── ui/             # Shadcn primitive components
+│   └── shared/         # Navbar, Footer, and ModeTogglers
+├── Mainlayout/         
+│   ├── CommonLayout/   # Reusable Section Components (Hero, BlogSection, etc.)
+│   └── Page/           # Full Route Pages (Home, Blog, BlogDetails)
+├── lib/                # Utility functions (cn helper)
+└── App.tsx             # Root component with Outlet
