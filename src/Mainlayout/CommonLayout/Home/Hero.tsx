@@ -10,6 +10,12 @@ import {
 
   Sparkles
 } from "lucide-react";
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarGroup,
+  AvatarImage,
+} from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import Lottie from "lottie-react";
@@ -228,11 +234,28 @@ export default function PremiumHero() {
                       <p className="text-sm font-bold text-slate-900 dark:text-white">Active & Secured</p>
                     </div>
                   </div>
-                  <div className="flex -space-x-2">
+                  {/* <div className="flex -space-x-2">
                     {[1,2,3].map(i => (
                         <div key={i} className="w-8 h-8 rounded-full border-2 border-white dark:border-slate-900 bg-slate-200 dark:bg-slate-700" />
                     ))}
-                  </div>
+                  </div> */}
+                  <AvatarGroup className="grayscale">
+      <Avatar>
+        <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+        <AvatarFallback>CN</AvatarFallback>
+      </Avatar>
+      <Avatar>
+        <AvatarImage src="https://github.com/maxleiter.png" alt="@maxleiter" />
+        <AvatarFallback>LR</AvatarFallback>
+      </Avatar>
+      <Avatar>
+        <AvatarImage
+          src="https://github.com/evilrabbit.png"
+          alt="@evilrabbit"
+        />
+        <AvatarFallback>ER</AvatarFallback>
+      </Avatar>
+    </AvatarGroup>
                 </motion.div>
               </div>
             </motion.div>

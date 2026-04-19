@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 import { LogIn, Menu, X, ExternalLink, Sparkles } from "lucide-react";
 import { HashLink } from "react-router-hash-link";
 import { useLocation } from "react-router-dom";
-
+import {motion} from "framer-motion"
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -20,6 +20,7 @@ import logo from "../../assets/image.png";
 import { ModeToggle } from "./ModeToggler";
 import { LangToggle } from "./LangToggler";
 import { cn } from "../../lib/utils";
+import { AnimatePresence } from "framer-motion";
 
 const NAV_ITEMS = [
   { label: "Home", href: "/" },
@@ -160,6 +161,84 @@ const Navbar = () => {
 
       {/* Simplified Mobile Menu logic remains similar but uses the new theme colors */}
       {/* ... [Mobile Overlay Logic] ... */}
+     {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="fixed inset-0 z-[40] lg:hidden bg-white/95 dark:bg-slate-950/95 backdrop-blur-2xl pt-24 px-6 pb-10 flex flex-col justify-between"
+          >
+            {/* Navigation Links */}
+            <div className="space-y-4">
+              {NAV_ITEMS.map((item, i) => (
+                <motion.div
+                  key={item.label}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.1 }}
+                >
+                  {item.children ? (
+                    <div className="space-y-3">
+                      <p className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400 ml-4">
+                        {item.label}
+                      </p>
+                      {item.children.map((child) => (
+                        <a
+                          key={child.title}
+                          href={child.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center justify-between p-4 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800"
+                        >
+                          <span className="font-bold text-slate-900 dark:text-white">{child.title}</span>
+                          <ExternalLink className="h-4 w-4 text-blue-500" />
+                        </a>
+                      ))}
+                    </div>
+                  ) : (
+                    <HashLink
+                      smooth
+                      to={item.href}
+                      onClick={() => setIsOpen(false)}
+                      className={cn(
+                        "block p-4 text-3xl font-black tracking-tighter transition-all",
+                        isActive(item.href) 
+                          ? "text-blue-600 dark:text-blue-400" 
+                          : "text-slate-900 dark:text-white"
+                      )}
+                    >
+                      {item.label}
+                    </HashLink>
+                  )}
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Mobile Footer Actions */}
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5 }}
+              className="space-y-6"
+            >
+              <div className="flex items-center justify-between p-4 rounded-2xl bg-slate-100 dark:bg-slate-900">
+                <span className="text-sm font-bold text-slate-500">Preferences</span>
+                <div className="flex gap-2">
+                  <LangToggle />
+                  <ModeToggle />
+                </div>
+              </div>
+
+              <Button className="w-full h-14 rounded-2xl text-lg font-black bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-xl shadow-blue-500/20">
+                <LogIn className="mr-2 h-5 w-5" />
+                Access Portal
+              </Button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 };
