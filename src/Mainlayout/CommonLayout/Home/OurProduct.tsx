@@ -6,7 +6,7 @@ import {
   Settings, 
   Download, 
   CheckCircle2, 
-  Layers,
+
   Cpu,
   Smartphone
 } from "lucide-react";

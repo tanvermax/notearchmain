@@ -9,7 +9,7 @@ import {
   ShieldCheck,
   BellRing
 } from "lucide-react";
-import { cn } from "@/lib/utils";
+
 
 const APP_HIGHLIGHTS = [
   { icon: <Zap className="w-4 h-4 text-amber-500" />, text: "Real-time Attendance" },
