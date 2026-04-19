@@ -9,6 +9,7 @@ export const BLOG_POSTS = [
     image: "https://images.pexels.com/photos/31040303/pexels-photo-31040303.jpeg",
     color: "bg-blue-600",
     featured: true,
+    readTime: "4 min read",
 
   },
   {
@@ -21,6 +22,7 @@ export const BLOG_POSTS = [
     image: "https://images.pexels.com/photos/18069494/pexels-photo-18069494.png",
     color: "bg-emerald-600",
     featured: true,
+    readTime: "10 min read",
 
   }
 ];

@@ -126,7 +126,7 @@ export default function BlogDetailsPage() {
 function ShareButton({ icon }: { icon: React.ReactNode }) {
   return (
     <button className="w-12 h-12 rounded-full border border-slate-100 dark:border-slate-900 flex items-center justify-center text-slate-400 hover:text-blue-600 hover:border-blue-600 transition-all">
-      {cloneElement(icon as React.ReactElement, { className: "w-4 h-4" })}
+      {cloneElement(icon as React.ReactElement<{className : string}>, { className: "w-4 h-4" })}
     </button>
   );
 }
