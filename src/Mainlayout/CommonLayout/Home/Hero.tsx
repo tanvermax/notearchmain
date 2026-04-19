@@ -1,69 +1,76 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  Monitor,
-  Smartphone,
-  ShieldCheck,
+  GraduationCap,
+  LayoutDashboard,
+  BookOpen,
+  Building2,
   Zap,
-  Globe,
   Check,
   ChevronRight,
+  Sparkles
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import Lottie from "lottie-react";
-import animationData from "../../../assets/lottifile/Animation - 1740010453167.json";
-import animationData1 from "../../../assets/lottifile/STUDENT.json";
-import animationData2 from "../../../assets/lottifile/Teacher Pythagoras Theorem.json";
-import animationData3 from "../../../assets/lottifile/learning.json";
+
+// Maintain your imports for Lottie
+import animationData from "../../../assets/lottifile/Animation - 1740010453167.json"; // Institution
+import animationData1 from "../../../assets/lottifile/STUDENT.json"; // Student
+import animationData2 from "../../../assets/lottifile/Teacher Pythagoras Theorem.json"; // TeknoBoard
+import animationData3 from "../../../assets/lottifile/learning.json"; // TeknoBook
 
 const SCENES = [
   {
     id: 1,
-    tag: "Hybrid Learning",
-    title: "Hybrid Physical & Real-Time Virtual",
-    desc: "Break the walls of the classroom. Connect on-site students with remote learners in a single, unified digital environment.",
-    icon: <Monitor className="w-5 h-5" />,
-    stats: "99% Uptime",
-    color: "from-blue-600 to-indigo-600",
-    image: animationData, // Screenshot 1
+    tag: "NoteArch Institution",
+    title: "The Backbone of Intelligent Academia",
+    desc: "A 360° ERP solution for institutions. Digitalize admissions, administration, and faculty workflows within a single secured AI-powered ecosystem.",
+    icon: <Building2 className="w-5 h-5" />,
+    stats: "Full ERP Integration",
+    color: "from-blue-700 to-indigo-600",
+    image: animationData,
+    cta: "Digitalize Your Institute"
   },
   {
     id: 2,
-    tag: "Student Access",
-    title: "365/24/7 Academic Engagement",
-    desc: "Education doesn't sleep. Give students the tools to learn from the sofa, the park, or the library with synchronized progress.",
-    icon: <Smartphone className="w-5 h-5" />,
-    stats: "Anywhere Access",
-    color: "from-cyan-500 to-blue-500",
-    image: animationData1, // Screenshot 2
+    tag: "NoteArch Student",
+    title: "Your Personalized Virtual World",
+    desc: "Connected 365/24/7. Access lecture notes, track real-time progress, and bridge the gap between classroom learning and home study.",
+    icon: <GraduationCap className="w-5 h-5" />,
+    stats: "24/7 Connectivity",
+    color: "from-blue-500 to-cyan-500",
+    image: animationData1,
+    cta: "Explore Student Portal"
   },
   {
     id: 3,
-    tag: "Parental Peace",
-    title: "Real-Time Progress Monitoring",
-    desc: "Transparent education. Parents can monitor attendance, grades, and behavior in real-time via the NoteArch dashboard.",
-    icon: <ShieldCheck className="w-5 h-5" />,
-    stats: "Live Updates",
-    color: "from-indigo-500 to-purple-600",
-    image: animationData2, // Screenshot 3
+    tag: "TeknoBoard",
+    title: "Interactive Teaching Redefined",
+    desc: "Empower teachers with smart delivery tools. Share real-time lecture notes, agenda books, and virtual classroom facilities seamlessly.",
+    icon: <LayoutDashboard className="w-5 h-5" />,
+    stats: "Real-time Delivery",
+    color: "from-indigo-500 to-blue-600",
+    image: animationData2,
+    cta: "See Smart Features"
   },
   {
     id: 4,
-    tag: "Institutional Growth",
-    title: "Digitalizing the Entire Academia",
-    desc: "Scale your institution with a centralized cloud infrastructure that handles everything from enrollment to graduation.",
-    icon: <Globe className="w-5 h-5" />,
-    stats: "Full Scale",
-    color: "from-sky-500 to-emerald-500",
-    image: animationData3, // Screenshot 4
+    tag: "TeknoBook",
+    title: "Systematic Archival for Success",
+    desc: "Transform notes into a lifelong career arch. A secured digital library for students, parents, and mentors to ensure uninterrupted learning.",
+    icon: <BookOpen className="w-5 h-5" />,
+    stats: "AI-Powered Archival",
+    color: "from-slate-700 to-slate-900",
+    image: animationData3,
+    cta: "Start Archiving"
   },
 ];
 
 export default function PremiumHero() {
   const [index, setIndex] = useState(0);
   const Lottianimation = (Lottie as any).default || Lottie;
-  // Auto-play feature
+
   useEffect(() => {
     const timer = setInterval(() => {
       setIndex((prev) => (prev + 1) % SCENES.length);
@@ -74,29 +81,30 @@ export default function PremiumHero() {
   const active = SCENES[index];
 
   return (
-    <section className="relative pt-20 min-h-[90vh] w-full flex items-center bg-white dark:bg-slate-950 overflow-hidden">
-      {/* Dynamic Background Glow */}
+    <section className="relative pt-28 pb-20 min-h-[95vh] w-full flex items-center bg-slate-50 dark:bg-slate-950 overflow-hidden">
+      {/* Refined Background Glow */}
       <div
         className={cn(
-          "absolute top-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full blur-[120px] opacity-20 transition-colors duration-1000 bg-gradient-to-br",
+          "absolute top-[-20%] right-[-10%] w-[60%] h-[60%] rounded-full blur-[140px] opacity-10 transition-colors duration-1000 bg-gradient-to-br",
           active.color,
         )}
       />
 
-      <div className="max-w-7xl  mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center z-10">
+      <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center z-10">
+        
         {/* LEFT: CONTENT SECTION */}
-        <div className="space-y-8 text-left">
-          <div className="flex flex-col gap-4">
+        <div className="space-y-8">
+          <div className="space-y-5">
             <AnimatePresence mode="wait">
               <motion.div
                 key={active.id + "tag"}
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
-                className="flex items-center gap-2 w-fit px-4 py-1.5 rounded-full bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800"
+                className="flex items-center gap-2 w-fit px-4 py-1.5 rounded-full bg-white dark:bg-slate-900 border border-blue-500/10 shadow-sm"
               >
-                <span className="text-primary">{active.icon}</span>
-                <span className="text-sm font-bold text-blue-500 tracking-wide uppercase">
+                <span className="text-blue-600 dark:text-blue-400">{active.icon}</span>
+                <span className="text-xs font-black text-slate-600 dark:text-slate-300 tracking-[0.2em] uppercase">
                   {active.tag}
                 </span>
               </motion.div>
@@ -108,9 +116,13 @@ export default function PremiumHero() {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: 20 }}
-                className="text-5xl text-blue-500 lg:text-7xl font-black tracking-tight leading-[1.05]"
+                className="text-5xl lg:text-7xl font-black tracking-tight leading-[1.1] text-slate-900 dark:text-white"
               >
-                {active.title}
+                {active.title.split(' ').map((word, i) => (
+                    <span key={i} className={cn(i > 2 && "bg-gradient-to-r from-blue-600 to-indigo-500 bg-clip-text text-transparent")}>
+                        {word}{' '}
+                    </span>
+                ))}
               </motion.h1>
             </AnimatePresence>
 
@@ -119,103 +131,118 @@ export default function PremiumHero() {
                 key={active.id + "desc"}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                className="text-lg text-slate-500 dark:text-slate-400 max-w-lg"
+                className="text-lg text-slate-600 dark:text-slate-400 max-w-lg leading-relaxed font-medium"
               >
                 {active.desc}
               </motion.p>
             </AnimatePresence>
           </div>
 
-          {/* Action Buttons */}
-          <div className="flex flex-wrap gap-4">
+          {/* Action Area */}
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
             <Button
               size="lg"
-              className="rounded-xl px-8 h-14 bg-blue-500 hover:scale-105 transition-transform text-lg shadow-lg shadow-primary/25"
+              className="rounded-full px-10 h-16 bg-gradient-to-r from-blue-600 to-indigo-600 hover:scale-105 transition-all text-lg font-bold shadow-xl shadow-blue-500/25 border-none"
             >
-              Start Transformation
+              {active.cta}
+              <Sparkles className="ml-2 w-5 h-5" />
             </Button>
-            <div className="flex items-center gap-3 px-4 border-l-2 border-slate-200 dark:border-slate-800">
-              <div className="h-10 w-10 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-500">
-                <Zap className="w-5 h-5 fill-current" />
+            
+            <div className="flex items-center gap-3">
+              <div className="h-12 w-12 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center justify-center text-blue-500 shadow-sm">
+                <Zap className="w-6 h-6 fill-blue-500/10" />
               </div>
               <div>
-                <p className="text-xs font-bold text-slate-400 uppercase">
-                  Current Status
+                <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">
+                  Performance
                 </p>
-                <p className="text-sm font-bold">{active.stats}</p>
+                <p className="text-sm font-bold text-slate-900 dark:text-white">{active.stats}</p>
               </div>
             </div>
           </div>
 
-          {/* Progress Indicators (Clickable) */}
-          <div className="flex gap-3 pt-8">
-            {SCENES.map((_, i) => (
+          {/* Pagination Indicators */}
+          <div className="flex gap-4 pt-10">
+            {SCENES.map((scene, i) => (
               <button
                 key={i}
                 onClick={() => setIndex(i)}
-                className="group relative h-1.5 transition-all duration-300 overflow-hidden rounded-full bg-slate-200 dark:bg-slate-800"
-                style={{ width: i === index ? "60px" : "20px" }}
+                className="group flex flex-col gap-2"
               >
-                {i === index && (
-                  <motion.div
-                    layoutId="progress"
-                    className={cn(
-                      "absolute inset-0 bg-gradient-to-r",
-                      active.color,
-                    )}
-                    initial={{ width: "0%" }}
-                    animate={{ width: "100%" }}
-                    transition={{ duration: 8, ease: "linear" }}
-                  />
-                )}
+                <div 
+                  className="h-1.5 rounded-full bg-slate-200 dark:bg-slate-800 transition-all duration-300 overflow-hidden"
+                  style={{ width: i === index ? "80px" : "30px" }}
+                >
+                  {i === index && (
+                    <motion.div
+                      layoutId="progress"
+                      className={cn("h-full bg-gradient-to-r", active.color)}
+                      initial={{ width: "0%" }}
+                      animate={{ width: "100%" }}
+                      transition={{ duration: 8, ease: "linear" }}
+                    />
+                  )}
+                </div>
+                <span className={cn(
+                    "text-[10px] font-bold uppercase tracking-tighter transition-opacity",
+                    i === index ? "opacity-100 text-blue-600" : "opacity-0"
+                )}>
+                    0{scene.id}
+                </span>
               </button>
             ))}
           </div>
         </div>
 
-        {/* RIGHT: THE "PRODUCT MOCKUP" VISUAL */}
-        <div className="relative flex items-center justify-center">
+        {/* RIGHT: THE VISUAL SCREEN */}
+        <div className="relative group">
           <AnimatePresence mode="wait">
             <motion.div
               key={active.id}
-              initial={{ opacity: 0, scale: 0.9, rotateY: 15 }}
-              animate={{ opacity: 1, scale: 1, rotateY: 0 }}
-              exit={{ opacity: 0, scale: 1.1, rotateY: -15 }}
-              transition={{ duration: 0.6, type: "spring" }}
-              className="relative z-20 w-full max-w-175 aspect-4/3 rounded-3xl overflow-hidden shadow-2xl shadow-black/20 border-[px]  dark:border-slate-800 bg-slate-200"
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 1.05, y: -20 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              className="relative z-20 w-full aspect-square lg:aspect-4/3 rounded-[2.5rem] p-4 bg-white dark:bg-slate-900 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.2)] border border-slate-200/50 dark:border-slate-800/50"
             >
-              {/* Inside the "Screen" */}
-              <div className="absolute inset-0 bg-white dark:bg-slate-900 flex items-center justify-center">
-              
+              <div className="w-full h-full rounded-[1.8rem] overflow-hidden bg-slate-50 dark:bg-slate-950 relative flex items-center justify-center">
                 <Lottianimation
-                
                   animationData={active.image}
                   loop={true}
-                  className="w-full  "
+                  className="w-[85%] h-[85%] object-contain"
                   autoplay={true}
                 />
 
-                {/* Overlaying Floating Elements to make it feel "UI-like" */}
+                {/* Floating Status Bar */}
                 <motion.div
-                  initial={{ y: 20 }}
-                  animate={{ y: 0 }}
-                  className="absolute bottom-4 left-4 right-4 p-4 bg-white/10 dark:bg-slate-800/90 backdrop-blur rounded-xl border border-white/20 shadow-lg flex items-center justify-between"
+                  initial={{ y: 20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  className="absolute bottom-6 left-6 right-6 p-4 bg-white/80 dark:bg-slate-900/90 backdrop-blur-md rounded-2xl border border-white dark:border-slate-800 shadow-xl flex items-center justify-between"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="h-8 w-8 rounded-full bg-blue-500 flex items-center justify-center text-white">
-                      <Check className="w-4 h-4 " />
+                    <div className="h-10 w-10 rounded-full bg-emerald-500 flex items-center justify-center text-white">
+                      <Check className="w-5 h-5 stroke-[3px]" />
                     </div>
-                    <span className="text-sm font-bold">System Online</span>
+                    <div>
+                      <p className="text-xs font-black text-slate-400 uppercase tracking-tight">Ecosystem Status</p>
+                      <p className="text-sm font-bold text-slate-900 dark:text-white">Active & Secured</p>
+                    </div>
                   </div>
-                  <ChevronRight className="w-5 h-5 text-slate-400" />
+                  <div className="flex -space-x-2">
+                    {[1,2,3].map(i => (
+                        <div key={i} className="w-8 h-8 rounded-full border-2 border-white dark:border-slate-900 bg-slate-200 dark:bg-slate-700" />
+                    ))}
+                  </div>
                 </motion.div>
               </div>
             </motion.div>
           </AnimatePresence>
 
-          {/* Decorative Elements around the image */}
-          <div className="absolute -top-10 -right-10 w-32 h-32 bg-yellow-400/10 rounded-full blur-2xl" />
-          <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-primary/10 rounded-full blur-3xl" />
+          {/* Artistic Glow Elements */}
+          <div className={cn(
+              "absolute -inset-4 rounded-[3rem] blur-3xl opacity-10 transition-colors duration-1000 bg-gradient-to-r",
+              active.color
+          )} />
         </div>
       </div>
     </section>
