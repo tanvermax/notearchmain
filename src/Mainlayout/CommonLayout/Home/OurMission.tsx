@@ -1,11 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Rocket, Target, Zap, Link, Globe, ShieldCheck } from "lucide-react";
+import { Rocket,  Zap, Link, Globe, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Lottie from "lottie-react";
 import animationData from "../../../assets/lottifile/rocket launched into space.json";
-import { cn } from "@/lib/utils";
 
 export default function MissionSection() {
   const Lottianimation = (Lottie as any).default || Lottie;

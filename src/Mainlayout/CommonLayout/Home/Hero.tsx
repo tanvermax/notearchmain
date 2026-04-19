@@ -7,7 +7,7 @@ import {
   Building2,
   Zap,
   Check,
-  ChevronRight,
+
   Sparkles
 } from "lucide-react";
 import { Button } from "@/components/ui/button";

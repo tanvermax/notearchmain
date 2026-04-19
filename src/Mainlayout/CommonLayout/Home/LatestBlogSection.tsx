@@ -1,7 +1,6 @@
 
 import { motion } from "framer-motion";
 import { Calendar, Eye, ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { Link } from "react-router";
 
 const BLOG_POSTS = [

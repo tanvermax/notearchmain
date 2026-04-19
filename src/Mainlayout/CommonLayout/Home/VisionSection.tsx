@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Eye, Globe, Lightbulb, Check, Sparkles, Map } from "lucide-react";
+import { Eye, Globe, Lightbulb, Sparkles, Map } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Lottie from "lottie-react";
 import animationData from "../../../assets/lottifile/brain yoga.json";
