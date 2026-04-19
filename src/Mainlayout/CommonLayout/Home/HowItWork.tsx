@@ -81,7 +81,7 @@ export default function InteractiveOnboarding() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-6xl font-black tracking-tighter text-slate-900 dark:text-white leading-[1.05]"
+            className="text-4xl sticky md:text-6xl font-black tracking-tighter text-slate-900 dark:text-white leading-[1.05]"
           >
             How Does <span className="text-blue-600">It Work?</span>
           </motion.h3 >

@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { Calendar, Eye, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router";
 
 const BLOG_POSTS = [
   {
@@ -84,9 +85,9 @@ export default function LatestBlogSection() {
 
         {/* Action Button */}
         <div className="flex justify-center">
-          <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-6 rounded-xl text-lg font-semibold shadow-lg shadow-blue-200">
+          <Link to={"/blog"} className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-6 rounded-xl text-lg font-semibold shadow-lg shadow-blue-200">
             View All Blog Posts
-          </Button>
+          </Link>
         </div>
       </div>
     </section>
